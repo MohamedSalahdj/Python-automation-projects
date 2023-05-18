@@ -1,4 +1,5 @@
 from  datetime import datetime
+from colorama import Fore
 
 def birthday_calc():
 
@@ -7,14 +8,17 @@ def birthday_calc():
     
     if birthdate.month == datetime.now().date().month and birthdate.day < datetime.now().date().day:
         days_left_to_birthday = 365 - datetime.now().date().day
-        print(days_left_to_birthday)
-
+        print(Fore.GREEN+"Days Until Next Birthday:",end='  ')
+        print(Fore.BLUE , days_left_to_birthday)
+    
     elif birthdate.month < datetime.now().date().month:
         days_left_to_birthday = (((12 -  datetime.now().date().month ) + birthdate.month) * 30)  - ( 30 - datetime.now().date().day ) + (birthdate.day)
-        print(days_left_to_birthday)
+        print(Fore.GREEN+"Days Until Next Birthday:",end='  ')
+        print(Fore.BLUE , days_left_to_birthday)
     
     else: 
         days_left_to_birthday = ( (birthdate.month - datetime.now().date().month) * 30 + (30 - datetime.now().date().day) - (30 - birthdate.day))
-        print(days_left_to_birthday)
+        print(Fore.GREEN+"Days Until Next Birthday:",end='  ')
+        print(Fore.BLUE , days_left_to_birthday)
     
 birthday_calc()
